@@ -1,13 +1,10 @@
 import sys
-
-
 def main():
     data = sys.stdin.buffer.read().split()
     MOD = 998244353
     t = int(data[0])
     pos = 1
     out = []
-
     for _ in range(t):
         n = int(data[pos])
         pos += 1
@@ -21,10 +18,6 @@ def main():
         x = data[pos]
         y = data[pos + 1]
         pos += 2
-
-        # Every pulse adds 1 to the binary number written along each root-to-node path
-        # (root is the lowest bit). So we need P = (Y - X) on every path, and all nodes
-        # on the same depth must agree on that bit.
         borrow = [0] * (n + 1)
         seen = [False] * (n + 1)
         seen[1] = True
@@ -32,7 +25,6 @@ def main():
         answer = 0
         power = 1
         possible = True
-
         while level and possible:
             depth_bit = -1
             next_level = []
@@ -54,9 +46,7 @@ def main():
                 answer = (answer + power) % MOD
             power = power * 2 % MOD
             level = next_level
-
         out.append(str(answer) if possible else "-1")
-
     sys.stdout.write("\n".join(out) + "\n")
 
 
