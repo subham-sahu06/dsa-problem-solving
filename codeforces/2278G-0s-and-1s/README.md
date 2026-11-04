@@ -1,5 +1,7 @@
 # Codeforces Round 1131 (Div. 3) - G. 0s and 1s
 
+**Link:** https://codeforces.com/contest/2278/problem/G
+
 **Tags:** trees, dfs, bitmasks, number theory
 
 ## Problem
