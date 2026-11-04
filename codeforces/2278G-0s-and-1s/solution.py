@@ -48,6 +48,4 @@ def main():
             level = next_level
         out.append(str(answer) if possible else "-1")
     sys.stdout.write("\n".join(out) + "\n")
-
-
 main()
