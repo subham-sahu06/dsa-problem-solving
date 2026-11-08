@@ -1,18 +1,14 @@
 import sys
 from math import gcd
 from collections import deque
-
-
 def solve(a, b):
     if a == b:
         return []
     if gcd(a, b) == 1:
         return [b - a]
-
     for c in range(a + 1, b):
         if gcd(c, a) == 1 and gcd(c, b) == 1:
             return [c - a, b - c]
-
     length = b - a
     dist = [-1] * (length + 1)
     par = [0] * (length + 1)
@@ -25,15 +21,12 @@ def solve(a, b):
                 dist[v] = dist[u] + 1
                 par[v] = u
                 queue.append(v)
-
     steps = []
     cur = length
     while cur != 0:
         steps.append(cur - par[cur])
         cur = par[cur]
     return steps[::-1]
-
-
 def main():
     data = sys.stdin.read().split()
     t = int(data[0])
@@ -48,6 +41,4 @@ def main():
         if steps:
             out.append(" ".join(map(str, steps)))
     print("\n".join(out))
-
-
 main()
