@@ -1,16 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-
     int t;
     cin >> t;
     while (t--) {
         long long a, b;
         cin >> a >> b;
-
         if (a == b) {
             cout << 0 << '\n';
             continue;
@@ -19,7 +16,6 @@ int main() {
             cout << 1 << '\n' << b - a << '\n';
             continue;
         }
-
         long long mid = -1;
         for (long long c = a + 1; c < b; c++) {
             if (gcd(c, a) == 1 && gcd(c, b) == 1) {
@@ -31,7 +27,6 @@ int main() {
             cout << 2 << '\n' << mid - a << ' ' << b - mid << '\n';
             continue;
         }
-
         int len = b - a;
         vector<int> dist(len + 1, -1), par(len + 1, 0);
         dist[0] = 0;
@@ -48,7 +43,6 @@ int main() {
                 }
             }
         }
-
         int k = dist[len];
         vector<long long> steps;
         for (int cur = len; cur != 0; cur = par[cur]) {
