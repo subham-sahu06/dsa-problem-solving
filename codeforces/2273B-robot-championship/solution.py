@@ -1,6 +1,4 @@
 import sys
-
-
 def main():
     data = sys.stdin.read().split()
     t = int(data[0])
@@ -22,6 +20,4 @@ def main():
         out.append(str(len(seq)))
         out.append(" ".join(map(str, seq)))
     print("\n".join(out))
-
-
 main()
