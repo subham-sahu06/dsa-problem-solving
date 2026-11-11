@@ -1,21 +1,16 @@
 import java.io.*;
 import java.util.*;
-
 public class Main {
     public static void main(String[] args) throws IOException {
         DataInputStream in = new DataInputStream(new BufferedInputStream(System.in, 1 << 16));
         int t = nextInt(in);
         StringBuilder out = new StringBuilder();
-
         while (t-- > 0) {
             int n = nextInt(in);
             int[] a = new int[n];
             for (int i = 0; i < n; i++) {
                 a[i] = nextInt(in);
             }
-
-            // The kept numbers must all be multiples of the smallest kept number d,
-            // so for every d count how many elements it divides.
             int[] distinct = Arrays.stream(a).distinct().toArray();
             int best = 0;
             for (int d : distinct) {
